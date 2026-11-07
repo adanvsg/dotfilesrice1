@@ -1,0 +1,54 @@
+# Fonte
+font_family      JetBrainsMono Nerd Font
+font_size        11.0
+
+# Janela
+window_padding_width 12
+background_opacity   0.92
+confirm_os_window_close 0
+enable_audio_bell no
+
+# Cores principais
+background           #121212
+foreground           #b3b3b3
+selection_background #2b2b2b
+selection_foreground #ffffff
+cursor               #ffffff
+cursor_text_color    #121212
+url_color            #cccccc
+
+# Bordas entre divisões de janela
+active_border_color   #808080
+inactive_border_color #262626
+
+# Abas
+tab_bar_background          #121212
+active_tab_background       #2b2b2b
+active_tab_foreground       #ffffff
+inactive_tab_background     #121212
+inactive_tab_foreground     #595959
+
+# Paleta ANSI em tons de cinza
+color0  #262626
+color8  #6e6e6e
+
+color1  #b35f5f
+color9  #d96666
+
+color2  #7f9f7a
+color10 #96b591
+
+color3  #b8a46a
+color11 #cdb97f
+
+color4  #6f8fb0
+color12 #88a6c5
+
+color5  #9d7fa8
+color13 #b596c0
+
+color6  #6fa3a3
+color14 #88b8b8
+
+color7  #b3b3b3
+color15 #ffffff

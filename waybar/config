@@ -1,0 +1,90 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 20, // Waybar height (to be removed for auto height)
+    "margin-top": 6,
+    "margin-left": 12,
+    "margin-right": 12,
+    // "width": 1280, // Waybar width
+    "spacing": 6, // Gaps between modules
+    "reload_style_on_change": true,
+    // Choose the order of the modules
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["clock"],
+    "modules-right": ["group/system","mpris","pulseaudio", "backlight", "network", "battery"],
+
+    "mpris": {
+      "player": "spotify",
+      "format": "\uf1bc {status_icon}  {artist} - {album}",
+      "format-paused": "{status_icon}  {artist} - {album}",
+      "format-stopped": "",
+      "status-icons": { "playing": "  \uf04c", "paused": "  \uf04b" },
+      "tooltip-format": "{artist}\n{title}\n{album}",
+      "max-length": 40
+    },
+    "niri/workspaces": {
+      "format": "{icon}",
+      "format-icons": {
+        "default": "○",
+        "active": "●",
+        "empty": "·"
+      },
+      "all-outputs": false,
+      "disable-click": false
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %d de %B}",
+        "tooltip-format": "<tt>{calendar}</tt>"
+    },
+    "group/system": {
+        "orientation": "inherit",
+        "drawer": { "transition-duration": 400, "transition-left-to-right": false },
+        "modules": ["cpu", "memory", "temperature", "disk"]
+    },
+    "cpu": {
+        "format": "{icon}  {usage}%",
+        "format-icons": "󰍛"
+    },
+    "memory": {
+        "format": "{icon}  {percentage}%",
+        "format-icons": "󰻠"
+    },
+    "temperature": {
+        "format": "{icon}  {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "disk": {
+        "interval": 30,
+        "path": "/",
+        "format": "󰋊  {percentage_used}%",
+        "tooltip-format": "{used}/{total}"
+        },
+    "battery": {
+        "format": "{icon} {capacity}%",
+        "format-charging": "  {icon} {capacity}%",
+        "format-icons": ["  ", "  ", "  ", "  ", "  "],
+        "states": { "warning": 30, "critical": 15 }
+    },
+    "network": {
+        "format-wifi": "{icon}  {signalStrength}%",
+        "tooltip-format-wifi": "{essid}\n{ipaddr}",
+        "format-ethernet": "󰈀",
+        "tooltip-format-ethernet": false,
+        "format-disconnected": "󰖪",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "backlight": {
+      "format": "{icon} {percent}%",
+      "format-icons": ["󰃞", "󰃟", "󰃠"],
+      "scroll-step": 1,
+      "min-brightness": 0,
+      "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟",
+        "format-icons": { "default": ["  ", "  ", "  "] },
+        "on-click": "pavucontrol"
+    },
+}

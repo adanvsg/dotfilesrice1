@@ -1,0 +1,107 @@
+@define-color black-0 #050505;
+@define-color black-1 #0b0b0b;
+@define-color black-2 #121212;
+@define-color black-3 #1a1a1a;
+@define-color black-4 #242424;
+@define-color black-5 #2e2e2e;
+
+@define-color fg #a0a0a0;
+@define-color fg-dim #555555;
+@define-color fg-bright #ececec;
+
+@define-color line rgba(255, 255, 255, 0.06);
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 12px;
+  border: none;
+  min-height: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+
+window#waybar {
+  background: transparent;
+  color: @fg;
+}
+
+#backlight, #window, #mpris, #system, #pulseaudio, #network, #battery, #tray {
+  background: alpha(@black-2, 0.88);
+  border-radius: 14px;
+  padding: 0 14px;
+  border: 1px solid @line;
+  transition: all 0.25s ease;
+}
+
+#workspaces, #clock {
+  background: alpha(@black-0, 0.92);
+  border-radius: 14px;
+  padding: 0 14px;
+  border: 1px solid @line;
+  transition: all 0.25s ease;
+}
+
+#workspaces { padding: 0 4px; }
+
+#workspaces button {
+  background: none;
+  margin: 4px 2px;
+  padding: 0 6px;
+  border-radius: 10px;
+  color: @fg-dim;
+  transition: all 0.3s cubic-bezier(.4, 0, .2, 1);
+}
+#workspaces button:hover {
+  background: @black-3;
+  color: @fg;
+}
+#workspaces button.active {
+  background: @black-5;
+  color: @fg-bright;
+  padding: 0 14px;
+}
+#workspaces button.active:hover {
+  background: @black-5;
+  color: @fg-bright;
+}
+
+#window { color: @fg-dim; }
+#clock { color: @fg-bright; font-weight: bold; }
+
+#backlight:hover, #pulseaudio:hover, #network:hover, #mpris:hover, #system:hover, #tray:hover {
+  background: alpha(@black-4, 0.95);
+  color: @fg-bright;
+}
+
+#cpu, #memory, #temperature, #disk { padding: 0 8px; }
+
+#battery.charging { color: @fg-bright; }
+#battery.warning:not(.charging) {
+  color: @fg-bright;
+  background: alpha(@black-4, 0.95);
+}
+#battery.critical:not(.charging) {
+  animation: blink 0.8s steps(12) infinite alternate;
+}
+@keyframes blink {
+  to {
+    background-color: @black-5;
+    color: @fg-bright;
+  }
+}
+
+tooltip {
+  background: @black-0;
+  border: 1px solid @line;
+  border-radius: 12px;
+}
+tooltip label { color: @fg; padding: 2px 4px; }
+
+#mpris { color: @fg-dim; }
+#mpris.playing { color: @fg-bright; animation: breathe 1.5s ease-in-out infinite alternate; }
+#mpris.paused { color: @fg-dim; }
+
+@keyframes breathe {
+  from { border-color: alpha(@fg-bright, 0.04); }
+  to   { border-color: alpha(@fg-bright, 0.22); }
+}
